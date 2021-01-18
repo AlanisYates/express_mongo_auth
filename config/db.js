@@ -2,9 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 
 // My Uri
-// const MONGOURI =
-// "mongodb+srv://alyates123:alyates123@realcalc.ffgat.mongodb.net/realcalc?retryWrites=true&w=majority";
-const MONGOURI = process.env.ATLASURI;
+const MONGOURI = process.env.ATLAS_URI;
 
 const InitiateMongoServer = async () => {
   try {
