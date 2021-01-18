@@ -1,14 +1,19 @@
-const mongoose = require("mongooss");
+require("dotenv").config();
+const mongoose = require("mongoose");
 
 // My Uri
-const MONGOURI = process.env.URI;
+// const MONGOURI =
+// "mongodb+srv://alyates123:alyates123@realcalc.ffgat.mongodb.net/realcalc?retryWrites=true&w=majority";
+const MONGOURI = process.env.ATLASURI;
 
 const InitiateMongoServer = async () => {
   try {
     await mongoose.connect(MONGOURI, {
       useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
     });
-    console.log("Connected To DB !!");
+    console.log("Connected To DB!");
   } catch (e) {
     console.log(e);
     throw e;

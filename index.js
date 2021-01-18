@@ -1,9 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const InitiateMongoServer = require("./config/db");
+
+// Initate Mongo Server
+InitiateMongoServer();
 
 const app = express();
 
+// PORT
 const PORT = process.env.PORT || 4001;
+
+// Middlewear
+app.use(bodyParser.json());
 
 app.get("/", (req, res, next) => {
   res.status(200).send({ message: "You Made it!" });
